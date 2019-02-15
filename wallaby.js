@@ -56,6 +56,7 @@ module.exports = function () {
       setup: wallaby => {
           const jestConfig = require('./jest.config');
           jestConfig.transform = {
+            '^.*node_modules.*\\.(js|jsx|mjs)$': 'babel-jest',
             '^.+\\.(ts|js)$': '<rootDir>/node_modules/jest-preset-angular/preprocessor.js',
           }; 
           wallaby.testFramework.configure(jestConfig);

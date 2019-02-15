@@ -1,0 +1,20 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "module": "es2015",
+        "noEmit": false,
+        "types": [
+            "node"
+        ],
+        "noImplicitAny": false
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "src/**/*.spec.ts",
+        "src/**/*.e2e.ts",
+        "src/**/*.mock.ts",
+        "src/**/*.test.ts",
+        "src/**/*.stub.ts",
+    ]
+}

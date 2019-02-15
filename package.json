@@ -1,0 +1,79 @@
+{
+  "name": "angular-jest-wallaby-test",
+  "version": "0.0.0",
+  "description": "Testproject for Angular, Jest and Wallaby",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "ng build",
+    "build:prod": "npm run build -- --prod --stats-json",
+    "build:aot:prod": "npm run build:prod",
+    "bundlesize": "npm run build:prod && webpack-bundle-analyzer dist/stats.json",
+    "lint": "npm run tslint && npm run stylelint",
+    "ng": "ng",
+    "start": "ng serve --open=true",
+    "stylelint": "stylelint \"src/**/*.{css,scss}\"",
+    "test": "jest --coverage --forceExit --detectOpenHandles",
+    "test:update": "jest -u",
+    "cache": "jest --clearCache",
+    "test:verbose": "jest --watch --verbose",
+    "tslint": "tslint --project tsconfig.json",
+    "tslint:fix": "tslint --fix --project tsconfig.json",
+    "tsc": "tsc --pretty --noEmit",
+    "tsc:watch": "npm run tsc -- --watch --noEmit",
+    "qa": "npm audit && npm run tsc && npm run lint && npm run test"
+  },
+  "dependencies": {
+    "@angular/animations": "^7.1.0",
+    "@angular/cdk": "7.1.0",
+    "@angular/common": "^7.1.0",
+    "@angular/compiler": "^7.1.0",
+    "@angular/core": "^7.1.0",
+    "@angular/forms": "^7.1.0",
+    "@angular/http": "^7.1.0",
+    "@angular/platform-browser": "^7.1.0",
+    "@angular/platform-browser-dynamic": "^7.1.0",
+    "@angular/router": "^7.1.0",
+    "core-js": "^2.5.4",
+    "crypto-js": "^3.1.9-1",
+    "lscache": "^1.3.0",
+    "rxjs": "~6.3.3",
+    "zone.js": "~0.8.26",
+    "lodash-es": "^4.17.11"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.13.1",
+    "@angular/cli": "^7.0.6",
+    "@angular/compiler-cli": "^7.1.0",
+    "@angular/language-service": "^7.1.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@types/crypto-js": "^3.1.43",
+    "@types/jest": "^23.3.9",
+    "@types/lodash-es": "^4.17.2",
+    "@types/lscache": "^1.0.29",
+    "@types/node": "^10.12.10",
+    "codelyzer": "~4.5.0",
+    "cross-var": "^1.1.0",
+    "css-vars-ponyfill": "^1.16.2",
+    "husky": "^1.2.0",
+    "jest": "^24.1.0",
+    "jest-html-reporter": "^2.4.2",
+    "jest-junit": "^5.2.0",
+    "jest-preset-angular": "^6.0.2",
+    "stylelint": "^9.8.0",
+    "stylelint-config-standard": "^18.2.0",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.11.0",
+    "typescript": "~3.1.6",
+    "webpack-bundle-analyzer": "^3.0.3"
+  },
+  "engines": {
+    "node": ">= 8.0.0",
+    "npm": ">= 6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run qa",
+      "post-write": "npm run qa"
+    }
+  }
+}

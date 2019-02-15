@@ -1,0 +1,8 @@
+{
+    
+    "editor.detectIndentation": false,
+    "javascript.format.enable": true,
+    "tslint.autoFixOnSave": true,
+    "tslint.configFile": "tslint.json",
+    "typescript.tsdk": "node_modules/typescript/lib/"
+}

@@ -1,0 +1,6 @@
+<p>
+    <b>Please enter a name:</b> <input #tempName (change)="checkName(tempName.value);" />
+</p>
+
+<h1 *ngIf="name && match===false">{{ name }}, you are not THE GARY!</h1>
+<h1 *ngIf="name && match===true">You are THE GARY!</h1>

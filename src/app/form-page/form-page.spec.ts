@@ -8,6 +8,8 @@ import {
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
+import { Partners } from '../shared/constants/partners';
+
 import { FormPageComponent } from './form-page.component';
 
 describe('FormPageComponent', () => {
@@ -24,6 +26,7 @@ describe('FormPageComponent', () => {
                     provide: Router,
                     useValue: { navigate: jest.fn(), config: {hello: 'world'}}
                 },
+                Partners,
             ]
         });
         fixture = TestBed.createComponent(FormPageComponent);

@@ -5,6 +5,8 @@ import {
 import { Router } from '@angular/router';
 import isEqual from 'lodash-es/isEqual';
 
+import { Partners } from '../shared/constants/partners';
+
 @Component({
     selector: 'form-page',
     templateUrl: './form-page.template.html',
@@ -18,12 +20,14 @@ export class FormPageComponent implements OnInit {
     protected search: string = 'Gary';
 
     constructor (
-        private router: Router
+        private router: Router,
+        private partners: Partners
     ) {}
 
     public ngOnInit () {
         console.log('hello world');
         console.log(this.router.config);
+        console.log(this.partners);
     }
 
     public checkName (name: string) {

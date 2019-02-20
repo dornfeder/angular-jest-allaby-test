@@ -1,3 +1,5 @@
+const esModules = ['lodash-es'].join('|');
+
 module.exports = {
     preset: "jest-preset-angular",
     setupFilesAfterEnv: ["<rootDir>/src/setup-jest.ts"],
@@ -28,8 +30,10 @@ module.exports = {
     coverageReporters: ["html","lcovonly"],
     coverageDirectory: "./output/jest/coverage/",
     testURL: "http://localhost/",
-    transformIgnorePatterns: [
-        "/!node_modules\\/lodash-es/"
-    ],
-    transform: { "^.+\\.(js|jsx|mjs)$": "./node_modules/babel-jest"}
+    transformIgnorePatterns: [`/node_modules/(?!${esModules})`],
+    transform: { 
+        [`(${esModules}).+\\.js$`]: 'babel-jest',
+        '^.+\\.(ts|js)$': 'jest-preset-angular/preprocessor.js',
+        '^.+\\.html$': 'jest-preset-angular/preprocessor.js',
+    }
 };

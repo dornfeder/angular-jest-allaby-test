@@ -12,7 +12,7 @@ module.exports = function () {
       files: [
         'src/app/**/*.+(ts|html|json|snap|css|less|sass|scss|jpg|jpeg|gif|png|svg)',
         'jest.config.js',
-        { pattern: '.babelrc', instrument: false },
+        { pattern: 'babel.config.js', instrument: false },
         'src/setup-jest.ts',
         'src/__mocks__/jestGlobalMocks.ts',
         '!src/app/**/*.+(spec|test).ts'
@@ -55,10 +55,7 @@ module.exports = function () {
   
       setup: wallaby => {
           const jestConfig = require('./jest.config');
-          jestConfig.transform = {
-            '^.*node_modules.*\\.(js|jsx|mjs)$': 'babel-jest',
-            '^.+\\.(ts|js)$': '<rootDir>/node_modules/jest-preset-angular/preprocessor.js',
-          }; 
+          //delete jestConfig.transform["^.+\\.html$"];
           wallaby.testFramework.configure(jestConfig);
       }
     };

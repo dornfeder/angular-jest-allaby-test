@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// App is our top level component
+import { NgMarqueeModule } from 'ng-marquee';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormPageComponent } from './form-page';
@@ -37,6 +38,7 @@ const APP_PROVIDERS: any[] = [
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    NgMarqueeModule,
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.

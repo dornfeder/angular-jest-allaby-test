@@ -11,6 +11,11 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Partners } from '../shared/constants/partners';
 
 import { FormPageComponent } from './form-page.component';
+import * as MockTest from './mocktest';
+
+jest.mock('./mocktest', () => ({
+    getSomething: () => 'mockValue'
+}));
 
 describe('FormPageComponent', () => {
     let comp: FormPageComponent;
@@ -43,6 +48,10 @@ describe('FormPageComponent', () => {
         jest.spyOn(console, 'log');
         fixture.detectChanges();
         expect(console.log).toHaveBeenCalled();
+    });
+
+    it('should return something', async () => {
+        expect(MockTest.getSomething()).toEqual('mockValue');
     });
 
 });
